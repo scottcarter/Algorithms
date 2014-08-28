@@ -1,13 +1,14 @@
 //
-//  DetailViewController.h
+//  AlgorithmView.h
 //  Algorithms
 //
-//  Created by Scott Carter on 8/15/14.
+//  Created by Scott Carter on 8/22/14.
 //  Copyright (c) 2014 Scott Carter. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
+#import "CorePlot-CocoaTouch.h"
 
 
 // FIXME: None
@@ -20,7 +21,7 @@
 //
 #pragma mark Forward Declarations
 
-//@class MasterViewController;
+// None
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -30,7 +31,12 @@
 #pragma mark -
 #pragma mark Protocols
 
-// None
+@protocol DataDelegate <NSObject>
+
+- (NSDictionary *)dataForAlgorithmInputs:(NSDictionary *)inputs;
+
+@end
+
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -38,7 +44,7 @@
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
 #pragma mark -
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface AlgorithmView : UIView
 
 
 
@@ -47,9 +53,9 @@
 // ==========================================================================
 //
 #pragma mark -
-#pragma mark  Properties
+#pragma mark Properties
 
-//@property (strong, nonatomic) MasterViewController *masterViewController;
+@property (nonatomic, weak) id <DataDelegate> dataDelegate;
 
 
 
@@ -58,7 +64,7 @@
 // ==========================================================================
 //
 #pragma mark -
-#pragma mark Class method declarations
+#pragma mark Class methods declarations
 
 // None
 
@@ -70,8 +76,20 @@
 #pragma mark -
 #pragma mark Instance method declarations
 
-- (void)setupAlgorithmForName:(NSString *)algorithmName
-                        about:(NSString *)about;
+- (void)algorithmViewWillRotate;
+- (void)runAlgorithm;
+- (void)updateAlgorithmDisplay;
+
+
 
 @end
+
+
+
+
+
+
+
+
+
 

@@ -1,13 +1,12 @@
 //
-//  DetailViewController.h
+//  AlgorithmModelInterface.h
 //  Algorithms
 //
-//  Created by Scott Carter on 8/15/14.
+//  Created by Scott Carter on 8/22/14.
 //  Copyright (c) 2014 Scott Carter. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
+#import <Foundation/Foundation.h>
 
 
 // FIXME: None
@@ -20,7 +19,7 @@
 //
 #pragma mark Forward Declarations
 
-//@class MasterViewController;
+// None
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -38,7 +37,7 @@
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
 #pragma mark -
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface AlgorithmModelInterface : NSObject
 
 
 
@@ -49,8 +48,7 @@
 #pragma mark -
 #pragma mark  Properties
 
-//@property (strong, nonatomic) MasterViewController *masterViewController;
-
+// None
 
 
 // ==========================================================================
@@ -60,7 +58,7 @@
 #pragma mark -
 #pragma mark Class method declarations
 
-// None
++ (NSDictionary *)dataForAlgorithmName:(NSString *)algorithmName inputs:(NSDictionary *)inputs;
 
 
 // ==========================================================================
@@ -70,8 +68,7 @@
 #pragma mark -
 #pragma mark Instance method declarations
 
-- (void)setupAlgorithmForName:(NSString *)algorithmName
-                        about:(NSString *)about;
+// None
 
 @end
 

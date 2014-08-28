@@ -1,14 +1,14 @@
 //
-//  DetailViewController.h
+//  TwoDiceRollSimulationView.h
 //  Algorithms
 //
-//  Created by Scott Carter on 8/15/14.
+//  Created by Scott Carter on 8/21/14.
 //  Copyright (c) 2014 Scott Carter. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "AlgorithmView.h"
 
-
+#import "myCPTGraphHostingView.h"
 
 // FIXME: None
 // TODO: None
@@ -20,7 +20,7 @@
 //
 #pragma mark Forward Declarations
 
-//@class MasterViewController;
+// None
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -38,7 +38,7 @@
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
 #pragma mark -
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface TwoDiceRollSimulationView : AlgorithmView
 
 
 
@@ -47,9 +47,10 @@
 // ==========================================================================
 //
 #pragma mark -
-#pragma mark  Properties
+#pragma mark Properties
 
-//@property (strong, nonatomic) MasterViewController *masterViewController;
+// Public for debugging.
+@property (nonatomic, strong) IBOutlet myCPTGraphHostingView *hostView;
 
 
 
@@ -58,7 +59,7 @@
 // ==========================================================================
 //
 #pragma mark -
-#pragma mark Class method declarations
+#pragma mark Class methods declarations
 
 // None
 
@@ -70,8 +71,15 @@
 #pragma mark -
 #pragma mark Instance method declarations
 
-- (void)setupAlgorithmForName:(NSString *)algorithmName
-                        about:(NSString *)about;
+// None
+
+
 
 @end
+
+
+
+
+
+
 

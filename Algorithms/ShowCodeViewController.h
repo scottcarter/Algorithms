@@ -1,13 +1,12 @@
 //
-//  DetailViewController.h
+//  ShowCodeViewController.h
 //  Algorithms
 //
-//  Created by Scott Carter on 8/15/14.
+//  Created by Scott Carter on 8/27/14.
 //  Copyright (c) 2014 Scott Carter. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-
 
 
 // FIXME: None
@@ -20,7 +19,7 @@
 //
 #pragma mark Forward Declarations
 
-//@class MasterViewController;
+// None
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -38,7 +37,7 @@
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
 #pragma mark -
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface ShowCodeViewController : UIViewController
 
 
 
@@ -49,8 +48,7 @@
 #pragma mark -
 #pragma mark  Properties
 
-//@property (strong, nonatomic) MasterViewController *masterViewController;
-
+@property (strong, nonatomic) NSString *code;
 
 
 // ==========================================================================
@@ -70,8 +68,7 @@
 #pragma mark -
 #pragma mark Instance method declarations
 
-- (void)setupAlgorithmForName:(NSString *)algorithmName
-                        about:(NSString *)about;
+- (void)clearWebView;
 
 @end
 

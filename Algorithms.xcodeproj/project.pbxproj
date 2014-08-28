@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96F29971D10342809A0AA8AD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DBB37BB6DC4A2DB36C151F /* libPods.a */; };
+		A722346A19A677A900A75B6C /* TwoDiceRollSimulationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A722346919A677A900A75B6C /* TwoDiceRollSimulationView.m */; };
+		A722346D19A791A400A75B6C /* AlgorithmView.m in Sources */ = {isa = PBXBuildFile; fileRef = A722346C19A791A400A75B6C /* AlgorithmView.m */; };
+		A722347119A7A03000A75B6C /* AlgorithmModelInterface.mm in Sources */ = {isa = PBXBuildFile; fileRef = A722347019A7A03000A75B6C /* AlgorithmModelInterface.mm */; };
+		A722347919A7CE5500A75B6C /* AlgorithmModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = A722347719A7CE5500A75B6C /* AlgorithmModel.mm */; };
+		A765AA1419AE006500BABCFD /* ShowCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A765AA1319AE006500BABCFD /* ShowCodeViewController.m */; };
+		A765AA1B19AE1B0F00BABCFD /* TwoDiceRollSimulationModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = A765AA1A19AE1B0F00BABCFD /* TwoDiceRollSimulationModel.mm */; };
+		A79FE38019AF76DC0063C2B8 /* myCPTGraphHostingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A79FE37F19AF76DC0063C2B8 /* myCPTGraphHostingView.m */; };
 		A7EE2C27199E8BFA00D70A06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7EE2C26199E8BFA00D70A06 /* Foundation.framework */; };
 		A7EE2C29199E8BFA00D70A06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7EE2C28199E8BFA00D70A06 /* CoreGraphics.framework */; };
 		A7EE2C2B199E8BFA00D70A06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7EE2C2A199E8BFA00D70A06 /* UIKit.framework */; };
@@ -22,6 +30,11 @@
 		A7EE2C4B199E8BFA00D70A06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7EE2C2A199E8BFA00D70A06 /* UIKit.framework */; };
 		A7EE2C53199E8BFA00D70A06 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7EE2C51199E8BFA00D70A06 /* InfoPlist.strings */; };
 		A7EE2C55199E8BFA00D70A06 /* AlgorithmsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EE2C54199E8BFA00D70A06 /* AlgorithmsTests.m */; };
+		A7EE2C62199E8D2F00D70A06 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EE2C61199E8D2F00D70A06 /* Project.m */; };
+		A7EE2C6F199EEC6A00D70A06 /* TwoDiceRollSimulationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7EE2C6E199EEC6A00D70A06 /* TwoDiceRollSimulationView.xib */; };
+		A7FFCD7C19AE7D50003E8079 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FFCD7B19AE7D50003E8079 /* AboutViewController.m */; };
+		A7FFCD7E19AED83B003E8079 /* TwoDiceRollSimulationModel_h.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7FFCD7D19AED83B003E8079 /* TwoDiceRollSimulationModel_h.txt */; };
+		A7FFCD8019AED846003E8079 /* TwoDiceRollSimulationModel_mm.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7FFCD7F19AED846003E8079 /* TwoDiceRollSimulationModel_mm.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +48,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B3B59011FA5424E810D64FF /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		A3DBB37BB6DC4A2DB36C151F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A722346819A677A900A75B6C /* TwoDiceRollSimulationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoDiceRollSimulationView.h; sourceTree = "<group>"; };
+		A722346919A677A900A75B6C /* TwoDiceRollSimulationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoDiceRollSimulationView.m; sourceTree = "<group>"; };
+		A722346B19A791A400A75B6C /* AlgorithmView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlgorithmView.h; sourceTree = "<group>"; };
+		A722346C19A791A400A75B6C /* AlgorithmView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlgorithmView.m; sourceTree = "<group>"; };
+		A722346F19A7A03000A75B6C /* AlgorithmModelInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlgorithmModelInterface.h; sourceTree = "<group>"; };
+		A722347019A7A03000A75B6C /* AlgorithmModelInterface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AlgorithmModelInterface.mm; sourceTree = "<group>"; };
+		A722347519A7A42100A75B6C /* TwoDiceRollSimulationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoDiceRollSimulationModel.h; sourceTree = "<group>"; };
+		A722347719A7CE5500A75B6C /* AlgorithmModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AlgorithmModel.mm; sourceTree = "<group>"; };
+		A722347819A7CE5500A75B6C /* AlgorithmModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlgorithmModel.h; sourceTree = "<group>"; };
+		A765AA1219AE006500BABCFD /* ShowCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowCodeViewController.h; sourceTree = "<group>"; };
+		A765AA1319AE006500BABCFD /* ShowCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowCodeViewController.m; sourceTree = "<group>"; };
+		A765AA1A19AE1B0F00BABCFD /* TwoDiceRollSimulationModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TwoDiceRollSimulationModel.mm; sourceTree = "<group>"; };
+		A79FE37E19AF76DC0063C2B8 /* myCPTGraphHostingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCPTGraphHostingView.h; sourceTree = "<group>"; };
+		A79FE37F19AF76DC0063C2B8 /* myCPTGraphHostingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCPTGraphHostingView.m; sourceTree = "<group>"; };
 		A7EE2C23199E8BFA00D70A06 /* Algorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Algorithms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7EE2C26199E8BFA00D70A06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A7EE2C28199E8BFA00D70A06 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,6 +85,18 @@
 		A7EE2C50199E8BFA00D70A06 /* AlgorithmsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AlgorithmsTests-Info.plist"; sourceTree = "<group>"; };
 		A7EE2C52199E8BFA00D70A06 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A7EE2C54199E8BFA00D70A06 /* AlgorithmsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlgorithmsTests.m; sourceTree = "<group>"; };
+		A7EE2C5F199E8D1A00D70A06 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		A7EE2C60199E8D2800D70A06 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		A7EE2C61199E8D2F00D70A06 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
+		A7EE2C63199E8D3D00D70A06 /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
+		A7EE2C66199E8DCA00D70A06 /* README.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = README.h; sourceTree = "<group>"; };
+		A7EE2C67199E8DF000D70A06 /* Architecture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Architecture.h; sourceTree = "<group>"; };
+		A7EE2C68199E90ED00D70A06 /* DTPerformanceSession.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DTPerformanceSession.framework; path = Library/Frameworks/DTPerformanceSession.framework; sourceTree = DEVELOPER_DIR; };
+		A7EE2C6E199EEC6A00D70A06 /* TwoDiceRollSimulationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoDiceRollSimulationView.xib; sourceTree = "<group>"; };
+		A7FFCD7A19AE7D50003E8079 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		A7FFCD7B19AE7D50003E8079 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		A7FFCD7D19AED83B003E8079 /* TwoDiceRollSimulationModel_h.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TwoDiceRollSimulationModel_h.txt; sourceTree = SOURCE_ROOT; };
+		A7FFCD7F19AED846003E8079 /* TwoDiceRollSimulationModel_mm.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TwoDiceRollSimulationModel_mm.txt; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +107,7 @@
 				A7EE2C29199E8BFA00D70A06 /* CoreGraphics.framework in Frameworks */,
 				A7EE2C2B199E8BFA00D70A06 /* UIKit.framework in Frameworks */,
 				A7EE2C27199E8BFA00D70A06 /* Foundation.framework in Frameworks */,
+				96F29971D10342809A0AA8AD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,13 +124,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A722346719A6777C00A75B6C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A79FE37E19AF76DC0063C2B8 /* myCPTGraphHostingView.h */,
+				A79FE37F19AF76DC0063C2B8 /* myCPTGraphHostingView.m */,
+				A722346B19A791A400A75B6C /* AlgorithmView.h */,
+				A722346C19A791A400A75B6C /* AlgorithmView.m */,
+				A722346819A677A900A75B6C /* TwoDiceRollSimulationView.h */,
+				A722346919A677A900A75B6C /* TwoDiceRollSimulationView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A722346E19A79F8600A75B6C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A765AA2E19AE211B00BABCFD /* Code */,
+				A765AA1819AE191100BABCFD /* Resource */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		A765AA1819AE191100BABCFD /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A7FFCD7F19AED846003E8079 /* TwoDiceRollSimulationModel_mm.txt */,
+				A7FFCD7D19AED83B003E8079 /* TwoDiceRollSimulationModel_h.txt */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		A765AA2E19AE211B00BABCFD /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				A722347519A7A42100A75B6C /* TwoDiceRollSimulationModel.h */,
+				A765AA1A19AE1B0F00BABCFD /* TwoDiceRollSimulationModel.mm */,
+				A722347819A7CE5500A75B6C /* AlgorithmModel.h */,
+				A722347719A7CE5500A75B6C /* AlgorithmModel.mm */,
+				A722346F19A7A03000A75B6C /* AlgorithmModelInterface.h */,
+				A722347019A7A03000A75B6C /* AlgorithmModelInterface.mm */,
+			);
+			name = Code;
+			sourceTree = "<group>";
+		};
 		A7EE2C1A199E8BFA00D70A06 = {
 			isa = PBXGroup;
 			children = (
 				A7EE2C2C199E8BFA00D70A06 /* Algorithms */,
 				A7EE2C4E199E8BFA00D70A06 /* AlgorithmsTests */,
 				A7EE2C25199E8BFA00D70A06 /* Frameworks */,
+				A7EE2C6A199E910E00D70A06 /* Frameworks Not Linked (Header access) */,
 				A7EE2C24199E8BFA00D70A06 /* Products */,
+				6B3B59011FA5424E810D64FF /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +196,7 @@
 				A7EE2C28199E8BFA00D70A06 /* CoreGraphics.framework */,
 				A7EE2C2A199E8BFA00D70A06 /* UIKit.framework */,
 				A7EE2C48199E8BFA00D70A06 /* XCTest.framework */,
+				A3DBB37BB6DC4A2DB36C151F /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,14 +204,10 @@
 		A7EE2C2C199E8BFA00D70A06 /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
-				A7EE2C35199E8BFA00D70A06 /* AppDelegate.h */,
-				A7EE2C36199E8BFA00D70A06 /* AppDelegate.m */,
-				A7EE2C38199E8BFA00D70A06 /* Main.storyboard */,
-				A7EE2C3B199E8BFA00D70A06 /* MasterViewController.h */,
-				A7EE2C3C199E8BFA00D70A06 /* MasterViewController.m */,
-				A7EE2C3E199E8BFA00D70A06 /* DetailViewController.h */,
-				A7EE2C3F199E8BFA00D70A06 /* DetailViewController.m */,
 				A7EE2C41199E8BFA00D70A06 /* Images.xcassets */,
+				A7EE2C38199E8BFA00D70A06 /* Main.storyboard */,
+				A7EE2C64199E8D7700D70A06 /* Documentation */,
+				A7EE2C65199E8D8B00D70A06 /* Main */,
 				A7EE2C2D199E8BFA00D70A06 /* Supporting Files */,
 			);
 			path = Algorithms;
@@ -131,10 +216,8 @@
 		A7EE2C2D199E8BFA00D70A06 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A7EE2C2E199E8BFA00D70A06 /* Algorithms-Info.plist */,
-				A7EE2C2F199E8BFA00D70A06 /* InfoPlist.strings */,
-				A7EE2C32199E8BFA00D70A06 /* main.m */,
-				A7EE2C34199E8BFA00D70A06 /* Algorithms-Prefix.pch */,
+				A7EE2C6B199E939300D70A06 /* App */,
+				A7EE2C5E199E8CFA00D70A06 /* Includes */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -157,6 +240,81 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A7EE2C5E199E8CFA00D70A06 /* Includes */ = {
+			isa = PBXGroup;
+			children = (
+				A7EE2C63199E8D3D00D70A06 /* Types.h */,
+				A7EE2C60199E8D2800D70A06 /* Project.h */,
+				A7EE2C61199E8D2F00D70A06 /* Project.m */,
+				A7EE2C5F199E8D1A00D70A06 /* Global.h */,
+			);
+			name = Includes;
+			sourceTree = "<group>";
+		};
+		A7EE2C64199E8D7700D70A06 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				A7EE2C67199E8DF000D70A06 /* Architecture.h */,
+				A7EE2C66199E8DCA00D70A06 /* README.h */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+		A7EE2C65199E8D8B00D70A06 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A722346E19A79F8600A75B6C /* Models */,
+				A722346719A6777C00A75B6C /* Views */,
+				A7EE2C6D199EEC1900D70A06 /* Core Controllers */,
+				A7EE2C6C199EEC0900D70A06 /* Xib */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		A7EE2C6A199E910E00D70A06 /* Frameworks Not Linked (Header access) */ = {
+			isa = PBXGroup;
+			children = (
+				A7EE2C68199E90ED00D70A06 /* DTPerformanceSession.framework */,
+			);
+			name = "Frameworks Not Linked (Header access)";
+			sourceTree = "<group>";
+		};
+		A7EE2C6B199E939300D70A06 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A7EE2C35199E8BFA00D70A06 /* AppDelegate.h */,
+				A7EE2C36199E8BFA00D70A06 /* AppDelegate.m */,
+				A7EE2C2E199E8BFA00D70A06 /* Algorithms-Info.plist */,
+				A7EE2C2F199E8BFA00D70A06 /* InfoPlist.strings */,
+				A7EE2C32199E8BFA00D70A06 /* main.m */,
+				A7EE2C34199E8BFA00D70A06 /* Algorithms-Prefix.pch */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		A7EE2C6C199EEC0900D70A06 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				A7EE2C6E199EEC6A00D70A06 /* TwoDiceRollSimulationView.xib */,
+			);
+			name = Xib;
+			sourceTree = "<group>";
+		};
+		A7EE2C6D199EEC1900D70A06 /* Core Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A7FFCD7A19AE7D50003E8079 /* AboutViewController.h */,
+				A7FFCD7B19AE7D50003E8079 /* AboutViewController.m */,
+				A765AA1219AE006500BABCFD /* ShowCodeViewController.h */,
+				A765AA1319AE006500BABCFD /* ShowCodeViewController.m */,
+				A7EE2C3B199E8BFA00D70A06 /* MasterViewController.h */,
+				A7EE2C3C199E8BFA00D70A06 /* MasterViewController.m */,
+				A7EE2C3E199E8BFA00D70A06 /* DetailViewController.h */,
+				A7EE2C3F199E8BFA00D70A06 /* DetailViewController.m */,
+			);
+			name = "Core Controllers";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,9 +322,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7EE2C58199E8BFA00D70A06 /* Build configuration list for PBXNativeTarget "Algorithms" */;
 			buildPhases = (
+				1773C0EC06334002838AE17F /* Check Pods Manifest.lock */,
 				A7EE2C1F199E8BFA00D70A06 /* Sources */,
 				A7EE2C20199E8BFA00D70A06 /* Frameworks */,
 				A7EE2C21199E8BFA00D70A06 /* Resources */,
+				E2A7D52B369B4E299BB61065 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,7 +395,10 @@
 			files = (
 				A7EE2C42199E8BFA00D70A06 /* Images.xcassets in Resources */,
 				A7EE2C31199E8BFA00D70A06 /* InfoPlist.strings in Resources */,
+				A7FFCD7E19AED83B003E8079 /* TwoDiceRollSimulationModel_h.txt in Resources */,
 				A7EE2C3A199E8BFA00D70A06 /* Main.storyboard in Resources */,
+				A7FFCD8019AED846003E8079 /* TwoDiceRollSimulationModel_mm.txt in Resources */,
+				A7EE2C6F199EEC6A00D70A06 /* TwoDiceRollSimulationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,15 +412,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1773C0EC06334002838AE17F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E2A7D52B369B4E299BB61065 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A7EE2C1F199E8BFA00D70A06 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A722347919A7CE5500A75B6C /* AlgorithmModel.mm in Sources */,
 				A7EE2C37199E8BFA00D70A06 /* AppDelegate.m in Sources */,
+				A79FE38019AF76DC0063C2B8 /* myCPTGraphHostingView.m in Sources */,
 				A7EE2C3D199E8BFA00D70A06 /* MasterViewController.m in Sources */,
+				A765AA1B19AE1B0F00BABCFD /* TwoDiceRollSimulationModel.mm in Sources */,
 				A7EE2C33199E8BFA00D70A06 /* main.m in Sources */,
+				A722346A19A677A900A75B6C /* TwoDiceRollSimulationView.m in Sources */,
+				A7FFCD7C19AE7D50003E8079 /* AboutViewController.m in Sources */,
+				A7EE2C62199E8D2F00D70A06 /* Project.m in Sources */,
+				A722346D19A791A400A75B6C /* AlgorithmView.m in Sources */,
 				A7EE2C40199E8BFA00D70A06 /* DetailViewController.m in Sources */,
+				A765AA1419AE006500BABCFD /* ShowCodeViewController.m in Sources */,
+				A722347119A7A03000A75B6C /* AlgorithmModelInterface.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,9 +586,14 @@
 		};
 		A7EE2C59199E8BFA00D70A06 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B3B59011FA5424E810D64FF /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Algorithms/Algorithms-Prefix.pch";
 				INFOPLIST_FILE = "Algorithms/Algorithms-Info.plist";
@@ -394,9 +604,14 @@
 		};
 		A7EE2C5A199E8BFA00D70A06 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B3B59011FA5424E810D64FF /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Algorithms/Algorithms-Prefix.pch";
 				INFOPLIST_FILE = "Algorithms/Algorithms-Info.plist";
@@ -464,6 +679,7 @@
 				A7EE2C5A199E8BFA00D70A06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A7EE2C5B199E8BFA00D70A06 /* Build configuration list for PBXNativeTarget "AlgorithmsTests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +688,7 @@
 				A7EE2C5D199E8BFA00D70A06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

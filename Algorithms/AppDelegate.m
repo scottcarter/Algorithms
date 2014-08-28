@@ -16,6 +16,31 @@
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     splitViewController.delegate = (id)navigationController.topViewController;
+    
+    // Initialize our database.
+    self.algorithmDatabase = @[@{@"sectionLabel": @"Numerical",
+                                 @"algorithms" : @[
+                                         // Exercise 2-7
+                                         @{@"algorithmLabel": @"Two Dice Roll Simulation", @"algorithmName": @"TwoDiceRollSimulation",
+                                           @"about":@"Simulates rolling two six-sided dice and draws a bar chart showing the number of times each roll occurs.\nAlso shows expected percentage of the time one should get each roll.\n\nGreater number of trials reduce the percentage difference between random roll percentages and expected percentages."},
+                                         
+                                         @{@"algorithmLabel": @"Greatest Common Divisor", @"algorithmName": @"NumericalGreatestCommonDivisor",
+                                           @"about":@""},
+                                         
+                                         @{@"algorithmLabel": @"Finding Prime Factors", @"algorithmName": @"NumericalFindingPrimeFactors",
+                                           @"about":@""}
+                                         ]},
+                               
+                               @{@"sectionLabel": @"Linked Lists",
+                                 @"algorithms" : @[
+                                         @{@"algorithmLabel": @"Finding Cells", @"algorithmName": @"LinkedListFindingCells",
+                                           @"about":@""}
+                                         ]}
+                               
+                               ];
+    
+    
+
     return YES;
 }
 							

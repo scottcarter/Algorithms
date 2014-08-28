@@ -1,8 +1,8 @@
 //
-//  DetailViewController.h
+//  AboutViewController.h
 //  Algorithms
 //
-//  Created by Scott Carter on 8/15/14.
+//  Created by Scott Carter on 8/27/14.
 //  Copyright (c) 2014 Scott Carter. All rights reserved.
 //
 
@@ -20,7 +20,7 @@
 //
 #pragma mark Forward Declarations
 
-//@class MasterViewController;
+// None
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -30,7 +30,11 @@
 #pragma mark -
 #pragma mark Protocols
 
-// None
+@protocol AboutPopoverDelegate <NSObject>
+
+- (void)dismissAboutPopover;
+
+@end
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -38,7 +42,7 @@
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
 #pragma mark -
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface AboutViewController : UIViewController
 
 
 
@@ -49,8 +53,9 @@
 #pragma mark -
 #pragma mark  Properties
 
-//@property (strong, nonatomic) MasterViewController *masterViewController;
+@property (strong, nonatomic) NSString *text;
 
+@property (weak, nonatomic) id <AboutPopoverDelegate> aboutPopoverDelegate;
 
 
 // ==========================================================================
@@ -70,8 +75,7 @@
 #pragma mark -
 #pragma mark Instance method declarations
 
-- (void)setupAlgorithmForName:(NSString *)algorithmName
-                        about:(NSString *)about;
+// None
 
 @end
 

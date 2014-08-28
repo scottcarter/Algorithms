@@ -8,10 +8,69 @@
 
 #import <UIKit/UIKit.h>
 
+
+
+// FIXME: None
+// TODO: None
+#pragma mark -
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                    Forward Declarations
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//
+#pragma mark Forward Declarations
+
 @class DetailViewController;
 
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                    Protocols
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//
+#pragma mark -
+#pragma mark Protocols
+
+// None
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                    Public Interface
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//
+#pragma mark -
 @interface MasterViewController : UITableViewController
 
-@property (strong, nonatomic) DetailViewController *detailViewController;
+
+
+// ==========================================================================
+// Properties
+// ==========================================================================
+//
+#pragma mark -
+#pragma mark  Properties
+
+// None
+
+
+// ==========================================================================
+// Class method declarations
+// ==========================================================================
+//
+#pragma mark -
+#pragma mark Class method declarations
+
+// None
+
+
+// ==========================================================================
+// Instance method declarations
+// ==========================================================================
+//
+#pragma mark -
+#pragma mark Instance method declarations
+
+// None
 
 @end
+
