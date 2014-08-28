@@ -319,7 +319,6 @@ CGFloat const YAxisStretchFactor = 1.2f;
 // a jump in annotation positioning during the transition, we first hide annotations here.
 - (void)algorithmViewWillRotate
 {
-    NLOG("")
     [self hideAnnotation:self.rollPlot.graph];
 }
 
@@ -662,10 +661,6 @@ CGFloat const YAxisStretchFactor = 1.2f;
         }
         
         [self.annotationMutableArr removeAllObjects];
-        NLOG("Removed annotations")
-    }
-    else {
-        NLOG("Did not remove annotations")
     }
 }
 
