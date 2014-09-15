@@ -595,11 +595,19 @@
 
 
 // Note:
-// We can't include a .mm file in both the Resource Bundle as well as the list of compiled files.
+// In order to get runtime read access to a file, it must be included in the Resource Bundle.
+// For .mm or .cpp files, as soon as they are added to the Resource Bundle, they are automatically added
+// to Target Membership of our app.   What gets copied upon installation
+// is the corresponding object file, not the .mm or .cpp file itself.
 //
-// In order to get access to selected header and implementation files, we create links in
-// the Source subdirectory using the filename with .txt appended.  These links are then
-// added to the Resource Bundle.
+// In order to get runtime access to selected header and implementation files, we create links in
+// a Source subdirectory to our source file using the filename with .txt appended.  These links are then
+// added to the Resource Bundle.  The links are useful as we do not then need to keep 2 copies
+// of the same source file (one for compiling and one with a .txt extension for reading).
+//
+// Upon installation, the links are resolved into text files which
+// can then be read by the app at runtime.
+//
 //
 - (void)showCodePopover:(NSString *)fileNameBase
              button:(UIBarButtonItem *)button
