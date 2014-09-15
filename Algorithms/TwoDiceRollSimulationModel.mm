@@ -1,5 +1,5 @@
 //
-//  TwoDiceRollSimulationModel.cpp
+//  TwoDiceRollSimulationModel.mm
 //  Algorithms
 //
 //  Created by Scott Carter on 8/22/14.
@@ -27,6 +27,27 @@ void TwoDiceRollSimulationModel::dataForAlgorithm(int numTrials,
     randomTrials((int)numTrials, randomArrCounts);
     
     calculatedTrials((int)numTrials, calculatedArrPercentages);
+}
+
+
+vector<string> TwoDiceRollSimulationModel::headerFileList(void)
+{
+    vector<string> fileVec;
+    
+    fileVec.push_back("AlgorithmModel.h");
+    fileVec.push_back("TwoDiceRollSimulationModel.h");
+    
+    return fileVec;
+}
+
+vector<string> TwoDiceRollSimulationModel::implementationFileList(void)
+{
+    vector<string> fileVec;
+    
+    fileVec.push_back("AlgorithmModel.mm");
+    fileVec.push_back("TwoDiceRollSimulationModel.mm");
+    
+    return fileVec;
 }
 
 

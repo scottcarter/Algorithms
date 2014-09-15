@@ -19,6 +19,7 @@
 
 NSString *const CPTGraphHostingViewDrawRectNotification = @"CPTGraphHostingViewDrawRectNotification";
 
+NSString *const CodeSetChangeNotification = @"CodeSetChangeNotification";
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Error domains for our custom NSError objects

@@ -12,9 +12,22 @@
 		A722346D19A791A400A75B6C /* AlgorithmView.m in Sources */ = {isa = PBXBuildFile; fileRef = A722346C19A791A400A75B6C /* AlgorithmView.m */; };
 		A722347119A7A03000A75B6C /* AlgorithmModelInterface.mm in Sources */ = {isa = PBXBuildFile; fileRef = A722347019A7A03000A75B6C /* AlgorithmModelInterface.mm */; };
 		A722347919A7CE5500A75B6C /* AlgorithmModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = A722347719A7CE5500A75B6C /* AlgorithmModel.mm */; };
+		A725FEE419B0C0A00067EBCC /* ConsoleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A725FEE319B0C0A00067EBCC /* ConsoleView.xib */; };
+		A725FEE719B0C1170067EBCC /* ConsoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A725FEE619B0C1170067EBCC /* ConsoleView.m */; };
+		A725FEED19B0C3B60067EBCC /* ConsoleModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = A725FEEB19B0C3B60067EBCC /* ConsoleModel.mm */; };
 		A765AA1419AE006500BABCFD /* ShowCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A765AA1319AE006500BABCFD /* ShowCodeViewController.m */; };
 		A765AA1B19AE1B0F00BABCFD /* TwoDiceRollSimulationModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = A765AA1A19AE1B0F00BABCFD /* TwoDiceRollSimulationModel.mm */; };
+		A76D4D0919C631050011B08D /* TwoDiceRollSimulationModel.mm.txt in Resources */ = {isa = PBXBuildFile; fileRef = A76D4D0719C630E80011B08D /* TwoDiceRollSimulationModel.mm.txt */; };
+		A76D4D1119C633860011B08D /* AlgorithmModel.h.txt in Resources */ = {isa = PBXBuildFile; fileRef = A76D4D0A19C633860011B08D /* AlgorithmModel.h.txt */; };
+		A76D4D1219C633860011B08D /* AlgorithmModel.mm.txt in Resources */ = {isa = PBXBuildFile; fileRef = A76D4D0B19C633860011B08D /* AlgorithmModel.mm.txt */; };
+		A76D4D1319C633860011B08D /* ConsoleModel.h.txt in Resources */ = {isa = PBXBuildFile; fileRef = A76D4D0C19C633860011B08D /* ConsoleModel.h.txt */; };
+		A76D4D1419C633860011B08D /* ConsoleModel.mm.txt in Resources */ = {isa = PBXBuildFile; fileRef = A76D4D0D19C633860011B08D /* ConsoleModel.mm.txt */; };
+		A76D4D1519C633860011B08D /* ConsoleModelSnippets.cpp.txt in Resources */ = {isa = PBXBuildFile; fileRef = A76D4D0E19C633860011B08D /* ConsoleModelSnippets.cpp.txt */; };
+		A76D4D1619C633860011B08D /* ConsoleModelSnippets.h.txt in Resources */ = {isa = PBXBuildFile; fileRef = A76D4D0F19C633860011B08D /* ConsoleModelSnippets.h.txt */; };
+		A76D4D1719C633860011B08D /* TwoDiceRollSimulationModel.h.txt in Resources */ = {isa = PBXBuildFile; fileRef = A76D4D1019C633860011B08D /* TwoDiceRollSimulationModel.h.txt */; };
 		A79FE38019AF76DC0063C2B8 /* myCPTGraphHostingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A79FE37F19AF76DC0063C2B8 /* myCPTGraphHostingView.m */; };
+		A7C11F8E19C36A4200A05475 /* ConsoleModelSnippets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C11F8C19C36A4200A05475 /* ConsoleModelSnippets.cpp */; };
+		A7C11F9419C4BA3C00A05475 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C11F9319C4BA3C00A05475 /* KxMenu.m */; };
 		A7EE2C27199E8BFA00D70A06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7EE2C26199E8BFA00D70A06 /* Foundation.framework */; };
 		A7EE2C29199E8BFA00D70A06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7EE2C28199E8BFA00D70A06 /* CoreGraphics.framework */; };
 		A7EE2C2B199E8BFA00D70A06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7EE2C2A199E8BFA00D70A06 /* UIKit.framework */; };
@@ -33,8 +46,6 @@
 		A7EE2C62199E8D2F00D70A06 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EE2C61199E8D2F00D70A06 /* Project.m */; };
 		A7EE2C6F199EEC6A00D70A06 /* TwoDiceRollSimulationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7EE2C6E199EEC6A00D70A06 /* TwoDiceRollSimulationView.xib */; };
 		A7FFCD7C19AE7D50003E8079 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FFCD7B19AE7D50003E8079 /* AboutViewController.m */; };
-		A7FFCD7E19AED83B003E8079 /* TwoDiceRollSimulationModel_h.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7FFCD7D19AED83B003E8079 /* TwoDiceRollSimulationModel_h.txt */; };
-		A7FFCD8019AED846003E8079 /* TwoDiceRollSimulationModel_mm.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7FFCD7F19AED846003E8079 /* TwoDiceRollSimulationModel_mm.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,11 +70,28 @@
 		A722347519A7A42100A75B6C /* TwoDiceRollSimulationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoDiceRollSimulationModel.h; sourceTree = "<group>"; };
 		A722347719A7CE5500A75B6C /* AlgorithmModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AlgorithmModel.mm; sourceTree = "<group>"; };
 		A722347819A7CE5500A75B6C /* AlgorithmModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlgorithmModel.h; sourceTree = "<group>"; };
+		A725FEE319B0C0A00067EBCC /* ConsoleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConsoleView.xib; sourceTree = "<group>"; };
+		A725FEE519B0C1170067EBCC /* ConsoleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleView.h; sourceTree = "<group>"; };
+		A725FEE619B0C1170067EBCC /* ConsoleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsoleView.m; sourceTree = "<group>"; };
+		A725FEEB19B0C3B60067EBCC /* ConsoleModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConsoleModel.mm; sourceTree = "<group>"; };
+		A725FEEC19B0C3B60067EBCC /* ConsoleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleModel.h; sourceTree = "<group>"; };
 		A765AA1219AE006500BABCFD /* ShowCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowCodeViewController.h; sourceTree = "<group>"; };
 		A765AA1319AE006500BABCFD /* ShowCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowCodeViewController.m; sourceTree = "<group>"; };
 		A765AA1A19AE1B0F00BABCFD /* TwoDiceRollSimulationModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TwoDiceRollSimulationModel.mm; sourceTree = "<group>"; };
+		A76D4D0719C630E80011B08D /* TwoDiceRollSimulationModel.mm.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TwoDiceRollSimulationModel.mm.txt; path = Source/TwoDiceRollSimulationModel.mm.txt; sourceTree = SOURCE_ROOT; };
+		A76D4D0A19C633860011B08D /* AlgorithmModel.h.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AlgorithmModel.h.txt; path = Source/AlgorithmModel.h.txt; sourceTree = SOURCE_ROOT; };
+		A76D4D0B19C633860011B08D /* AlgorithmModel.mm.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AlgorithmModel.mm.txt; path = Source/AlgorithmModel.mm.txt; sourceTree = SOURCE_ROOT; };
+		A76D4D0C19C633860011B08D /* ConsoleModel.h.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ConsoleModel.h.txt; path = Source/ConsoleModel.h.txt; sourceTree = SOURCE_ROOT; };
+		A76D4D0D19C633860011B08D /* ConsoleModel.mm.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ConsoleModel.mm.txt; path = Source/ConsoleModel.mm.txt; sourceTree = SOURCE_ROOT; };
+		A76D4D0E19C633860011B08D /* ConsoleModelSnippets.cpp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ConsoleModelSnippets.cpp.txt; path = Source/ConsoleModelSnippets.cpp.txt; sourceTree = SOURCE_ROOT; };
+		A76D4D0F19C633860011B08D /* ConsoleModelSnippets.h.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ConsoleModelSnippets.h.txt; path = Source/ConsoleModelSnippets.h.txt; sourceTree = SOURCE_ROOT; };
+		A76D4D1019C633860011B08D /* TwoDiceRollSimulationModel.h.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TwoDiceRollSimulationModel.h.txt; path = Source/TwoDiceRollSimulationModel.h.txt; sourceTree = SOURCE_ROOT; };
 		A79FE37E19AF76DC0063C2B8 /* myCPTGraphHostingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCPTGraphHostingView.h; sourceTree = "<group>"; };
 		A79FE37F19AF76DC0063C2B8 /* myCPTGraphHostingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCPTGraphHostingView.m; sourceTree = "<group>"; };
+		A7C11F8C19C36A4200A05475 /* ConsoleModelSnippets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConsoleModelSnippets.cpp; sourceTree = "<group>"; };
+		A7C11F8D19C36A4200A05475 /* ConsoleModelSnippets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleModelSnippets.h; sourceTree = "<group>"; };
+		A7C11F9219C4BA3200A05475 /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
+		A7C11F9319C4BA3C00A05475 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
 		A7EE2C23199E8BFA00D70A06 /* Algorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Algorithms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7EE2C26199E8BFA00D70A06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A7EE2C28199E8BFA00D70A06 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -95,8 +123,6 @@
 		A7EE2C6E199EEC6A00D70A06 /* TwoDiceRollSimulationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoDiceRollSimulationView.xib; sourceTree = "<group>"; };
 		A7FFCD7A19AE7D50003E8079 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		A7FFCD7B19AE7D50003E8079 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
-		A7FFCD7D19AED83B003E8079 /* TwoDiceRollSimulationModel_h.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TwoDiceRollSimulationModel_h.txt; sourceTree = SOURCE_ROOT; };
-		A7FFCD7F19AED846003E8079 /* TwoDiceRollSimulationModel_mm.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TwoDiceRollSimulationModel_mm.txt; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,10 +153,12 @@
 		A722346719A6777C00A75B6C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A79FE37E19AF76DC0063C2B8 /* myCPTGraphHostingView.h */,
-				A79FE37F19AF76DC0063C2B8 /* myCPTGraphHostingView.m */,
 				A722346B19A791A400A75B6C /* AlgorithmView.h */,
 				A722346C19A791A400A75B6C /* AlgorithmView.m */,
+				A725FEE519B0C1170067EBCC /* ConsoleView.h */,
+				A725FEE619B0C1170067EBCC /* ConsoleView.m */,
+				A79FE37E19AF76DC0063C2B8 /* myCPTGraphHostingView.h */,
+				A79FE37F19AF76DC0063C2B8 /* myCPTGraphHostingView.m */,
 				A722346819A677A900A75B6C /* TwoDiceRollSimulationView.h */,
 				A722346919A677A900A75B6C /* TwoDiceRollSimulationView.m */,
 			);
@@ -149,8 +177,14 @@
 		A765AA1819AE191100BABCFD /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				A7FFCD7F19AED846003E8079 /* TwoDiceRollSimulationModel_mm.txt */,
-				A7FFCD7D19AED83B003E8079 /* TwoDiceRollSimulationModel_h.txt */,
+				A76D4D0A19C633860011B08D /* AlgorithmModel.h.txt */,
+				A76D4D0B19C633860011B08D /* AlgorithmModel.mm.txt */,
+				A76D4D0C19C633860011B08D /* ConsoleModel.h.txt */,
+				A76D4D0D19C633860011B08D /* ConsoleModel.mm.txt */,
+				A76D4D0E19C633860011B08D /* ConsoleModelSnippets.cpp.txt */,
+				A76D4D0F19C633860011B08D /* ConsoleModelSnippets.h.txt */,
+				A76D4D1019C633860011B08D /* TwoDiceRollSimulationModel.h.txt */,
+				A76D4D0719C630E80011B08D /* TwoDiceRollSimulationModel.mm.txt */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -158,12 +192,16 @@
 		A765AA2E19AE211B00BABCFD /* Code */ = {
 			isa = PBXGroup;
 			children = (
-				A722347519A7A42100A75B6C /* TwoDiceRollSimulationModel.h */,
-				A765AA1A19AE1B0F00BABCFD /* TwoDiceRollSimulationModel.mm */,
 				A722347819A7CE5500A75B6C /* AlgorithmModel.h */,
 				A722347719A7CE5500A75B6C /* AlgorithmModel.mm */,
 				A722346F19A7A03000A75B6C /* AlgorithmModelInterface.h */,
 				A722347019A7A03000A75B6C /* AlgorithmModelInterface.mm */,
+				A725FEEC19B0C3B60067EBCC /* ConsoleModel.h */,
+				A725FEEB19B0C3B60067EBCC /* ConsoleModel.mm */,
+				A7C11F8C19C36A4200A05475 /* ConsoleModelSnippets.cpp */,
+				A7C11F8D19C36A4200A05475 /* ConsoleModelSnippets.h */,
+				A722347519A7A42100A75B6C /* TwoDiceRollSimulationModel.h */,
+				A765AA1A19AE1B0F00BABCFD /* TwoDiceRollSimulationModel.mm */,
 			);
 			name = Code;
 			sourceTree = "<group>";
@@ -216,6 +254,8 @@
 		A7EE2C2D199E8BFA00D70A06 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A7C11F9319C4BA3C00A05475 /* KxMenu.m */,
+				A7C11F9219C4BA3200A05475 /* KxMenu.h */,
 				A7EE2C6B199E939300D70A06 /* App */,
 				A7EE2C5E199E8CFA00D70A06 /* Includes */,
 			);
@@ -296,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				A7EE2C6E199EEC6A00D70A06 /* TwoDiceRollSimulationView.xib */,
+				A725FEE319B0C0A00067EBCC /* ConsoleView.xib */,
 			);
 			name = Xib;
 			sourceTree = "<group>";
@@ -394,10 +435,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7EE2C42199E8BFA00D70A06 /* Images.xcassets in Resources */,
+				A76D4D0919C631050011B08D /* TwoDiceRollSimulationModel.mm.txt in Resources */,
+				A76D4D1319C633860011B08D /* ConsoleModel.h.txt in Resources */,
 				A7EE2C31199E8BFA00D70A06 /* InfoPlist.strings in Resources */,
-				A7FFCD7E19AED83B003E8079 /* TwoDiceRollSimulationModel_h.txt in Resources */,
+				A76D4D1519C633860011B08D /* ConsoleModelSnippets.cpp.txt in Resources */,
+				A76D4D1219C633860011B08D /* AlgorithmModel.mm.txt in Resources */,
+				A76D4D1119C633860011B08D /* AlgorithmModel.h.txt in Resources */,
+				A725FEE419B0C0A00067EBCC /* ConsoleView.xib in Resources */,
+				A76D4D1619C633860011B08D /* ConsoleModelSnippets.h.txt in Resources */,
+				A76D4D1719C633860011B08D /* TwoDiceRollSimulationModel.h.txt in Resources */,
+				A76D4D1419C633860011B08D /* ConsoleModel.mm.txt in Resources */,
 				A7EE2C3A199E8BFA00D70A06 /* Main.storyboard in Resources */,
-				A7FFCD8019AED846003E8079 /* TwoDiceRollSimulationModel_mm.txt in Resources */,
 				A7EE2C6F199EEC6A00D70A06 /* TwoDiceRollSimulationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,14 +501,18 @@
 				A722347919A7CE5500A75B6C /* AlgorithmModel.mm in Sources */,
 				A7EE2C37199E8BFA00D70A06 /* AppDelegate.m in Sources */,
 				A79FE38019AF76DC0063C2B8 /* myCPTGraphHostingView.m in Sources */,
+				A7C11F8E19C36A4200A05475 /* ConsoleModelSnippets.cpp in Sources */,
 				A7EE2C3D199E8BFA00D70A06 /* MasterViewController.m in Sources */,
 				A765AA1B19AE1B0F00BABCFD /* TwoDiceRollSimulationModel.mm in Sources */,
+				A725FEED19B0C3B60067EBCC /* ConsoleModel.mm in Sources */,
 				A7EE2C33199E8BFA00D70A06 /* main.m in Sources */,
 				A722346A19A677A900A75B6C /* TwoDiceRollSimulationView.m in Sources */,
 				A7FFCD7C19AE7D50003E8079 /* AboutViewController.m in Sources */,
+				A725FEE719B0C1170067EBCC /* ConsoleView.m in Sources */,
 				A7EE2C62199E8D2F00D70A06 /* Project.m in Sources */,
 				A722346D19A791A400A75B6C /* AlgorithmView.m in Sources */,
 				A7EE2C40199E8BFA00D70A06 /* DetailViewController.m in Sources */,
+				A7C11F9419C4BA3C00A05475 /* KxMenu.m in Sources */,
 				A765AA1419AE006500BABCFD /* ShowCodeViewController.m in Sources */,
 				A722347119A7A03000A75B6C /* AlgorithmModelInterface.mm in Sources */,
 			);

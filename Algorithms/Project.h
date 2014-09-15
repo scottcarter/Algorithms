@@ -10,8 +10,6 @@
 #define Algorithms_Project_h
 
 
-
-
 //// For Google Analytics
 //#import "GAI.h"
 //#import "GAIDictionaryBuilder.h"
@@ -56,6 +54,8 @@
 //
 
 FOUNDATION_EXPORT NSString *const CPTGraphHostingViewDrawRectNotification;
+
+FOUNDATION_EXPORT NSString *const CodeSetChangeNotification;
 
 
 

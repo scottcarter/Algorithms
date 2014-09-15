@@ -50,17 +50,9 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Paw-dX-fiV"/>
-                                    <barButtonItem title="Show Header" id="EXm-eX-edH" userLabel="Show Header">
-                                        <connections>
-                                            <action selector="showHeaderAction:" destination="JEX-9P-axG" id="h9Y-LE-1zj"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="Show Header" id="EXm-eX-edH" userLabel="Show Header"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cef-YM-7P0"/>
-                                    <barButtonItem title="Show Implementation" id="YDy-kH-FmF" userLabel="Show Implementation">
-                                        <connections>
-                                            <action selector="showImplementationAction:" destination="JEX-9P-axG" id="hVb-3j-2UG"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="Show Implementation" id="YDy-kH-FmF" userLabel="Show Implementation"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="j2H-9D-Qla"/>
                                     <barButtonItem title="E-mail the code" id="a7J-so-wbK" userLabel="E-mail the code">
                                         <connections>

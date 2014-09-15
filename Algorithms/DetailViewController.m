@@ -8,6 +8,8 @@
 
 #import "DetailViewController.h"
 
+#import "Project.h"
+
 //#import "MasterViewController.h"
 
 #import "AppDelegate.h"
@@ -25,7 +27,7 @@
 
 #import <MessageUI/MessageUI.h>
 
-
+#import "KxMenu.h"
 
 
 /*
@@ -43,7 +45,7 @@
 //                    Private Interface
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
-@interface DetailViewController () <DataDelegate, UIPopoverControllerDelegate, MFMailComposeViewControllerDelegate, AboutPopoverDelegate>
+@interface DetailViewController () <ViewDataDelegate, UIPopoverControllerDelegate, MFMailComposeViewControllerDelegate, AboutPopoverDelegate>
 
 // ==========================================================================
 // Properties
@@ -63,6 +65,7 @@
 
 // Current algorithm name & about
 @property (strong, nonatomic) NSString *algorithmName;
+@property (strong, nonatomic) NSString *algorithmLabel;
 @property (strong, nonatomic) NSString *about;
 
 // A pointer to current algorithm view
@@ -74,12 +77,11 @@
 @property (strong, nonatomic) NSMutableDictionary *algorithmViewsMutableDict;
 
 
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *aboutButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *runButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *showHeaderButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *showImplementationButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *emailCodeButton;
-
 
 
 @property (strong, nonatomic) ShowCodeViewController *codeViewController;
@@ -87,6 +89,11 @@
 
 @property (strong, nonatomic) UIPopoverController *codeViewPopover;
 @property (strong, nonatomic) UIPopoverController *aboutViewPopover;
+
+
+// File lists for current algorithm
+@property (strong, nonatomic) NSArray *headerFiles;
+@property (strong, nonatomic) NSArray *implementationFiles;
 
 @end
 
@@ -185,26 +192,6 @@
 //}
 
 
-- (IBAction)showHeaderAction:(UIBarButtonItem *)sender {
-    if([self.codeViewPopover isPopoverVisible]){
-        [self dismissCodePopover];
-        return;
-    }
-
-    NSString *fileNameBase = [NSString stringWithFormat:@"%@Model_h",self.algorithmName];
-    [self showCodePopover:fileNameBase button:sender];
-}
-
-
-- (IBAction)showImplementationAction:(UIBarButtonItem *)sender {
-    if([self.codeViewPopover isPopoverVisible]){
-        [self dismissCodePopover];
-        return;
-    }
-
-    NSString *fileNameBase = [NSString stringWithFormat:@"%@Model_mm",self.algorithmName];
-    [self showCodePopover:fileNameBase button:sender];
-}
 
 
 // Reference:
@@ -212,8 +199,8 @@
 //
 - (IBAction)emailCodeAction:(UIBarButtonItem *)sender {
     
-    NSString *emailTitle = [NSString stringWithFormat:@"C++ code for %@",self.algorithmName];
-    NSString *messageBody = [NSString stringWithFormat:@"The C++ code that you requested for %@ is attached.",self.algorithmName];
+    NSString *emailTitle = [NSString stringWithFormat:@"C++ code for selection in %@",self.algorithmLabel];
+    NSString *messageBody = [NSString stringWithFormat:@"The C++ code that you requested for selection in %@ is attached.",self.algorithmLabel];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;
@@ -222,23 +209,20 @@
     
     NSString *mimeType = @"text/example";
     
-    // Get the resource path and read the file using NSData
-    NSString *fileNameBase = [NSString stringWithFormat:@"%@Model_h",self.algorithmName];
-    NSString *codePath = [[NSBundle mainBundle] pathForResource:fileNameBase ofType:@"txt"];
-    NSData *codeData = [NSData dataWithContentsOfFile:codePath];
     
-    // Add attachment
-    [mc addAttachmentData:codeData mimeType:mimeType fileName:[NSString stringWithFormat:@"%@.h",self.algorithmName]];
+    // Get an array of all header and implementation files.
+    NSArray *allCodeFiles = [self.headerFiles arrayByAddingObjectsFromArray:self.implementationFiles];
     
+    for (NSString *fileNameBase in allCodeFiles) {
+        
+        // Get the resource path and read the file using NSData
+        NSString *codePath = [[NSBundle mainBundle] pathForResource:fileNameBase ofType:@"txt"];
+        NSData *codeData = [NSData dataWithContentsOfFile:codePath];
+        
+        // Add attachment
+        [mc addAttachmentData:codeData mimeType:mimeType fileName:fileNameBase];
+    }
     
-    // Repeat for .cpp file
-    fileNameBase = [NSString stringWithFormat:@"%@Model_mm",self.algorithmName];
-    codePath = [[NSBundle mainBundle] pathForResource:fileNameBase ofType:@"txt"];
-    codeData = [NSData dataWithContentsOfFile:codePath];
-    
-    [mc addAttachmentData:codeData mimeType:mimeType fileName:[NSString stringWithFormat:@"%@.cpp",self.algorithmName]];
-    
-
     
     // Present mail view controller on screen
     [self presentViewController:mc animated:YES completion:NULL];
@@ -253,6 +237,13 @@
 //
 #pragma mark -
 #pragma mark Initializations
+
+- (void)dealloc
+{
+    NSLog(@"!!! dealloc");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
@@ -307,6 +298,19 @@
 {
     [super viewDidLoad];
     
+    
+    // Toolbar buttons initially disabled.
+    [self disableToolbarButtons];
+    
+    // Show Header button brings up a menu.
+    self.showHeaderButton.action = @selector(showHeaderMenu:);
+    self.showHeaderButton.target = self;
+    
+    // Show Implementation button brings up a menu.
+    self.showImplementationButton.action = @selector(showImplementationMenu:);
+    self.showImplementationButton.target = self;
+
+    
     //self.masterViewController = (MasterViewController *)[[self.splitViewController.viewControllers firstObject] topViewController];
     
     self.appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -330,8 +334,24 @@
     self.aboutViewPopover.delegate = self;
     
     
+    // Code Set change notification
+    //
+    // Register for notifications for when a view has executed didMoveToSuperview: (fully loaded, visible)
+    // or changed a configuration which affects the selection of which code will be executed.
+    // Ex: A picker in the view may allow execution of code in different sets of files.
+    //
+    // We will use this notification to update the menus for the buttons Show Header, Show Implementation
+    //
+    // The notification will contain optional configuration information (picker selection, etc) as needed.
+    //
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(codeSetChangeNotification:)
+                                                 name:CodeSetChangeNotification
+                                               object:nil];
+
+    
     // Load our first algorithm by default.
-    [self setupAlgorithmForName:[self firstAlgorithmName]  about:[self firstAlgorithmAbout]];
+    [self setupAlgorithmForName:[self firstAlgorithmName] label:[self firstAlgorithmLabel] about:[self firstAlgorithmAbout]];
 }
 
 
@@ -339,7 +359,8 @@
 {
     [super viewDidLayoutSubviews];
     
-    // Note:
+    // Note for subviews that use CPTGraphHostingView:
+    //
     // At this point, the hostView (CPTGraphHostingView) of self.currentAlgorithmView
     // has a bounds that is not yet completely set.
     // On first layout for example, it may be 456.0, later settling to 500.0
@@ -360,6 +381,21 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+// A sub view is notifying us that it has either fully loaded or has changed a
+// configuration setting that affect the code set to be used.
+//
+- (void)codeSetChangeNotification:(NSNotification *)notification
+{
+    NSDictionary *userInfo = (NSDictionary *)notification.userInfo;
+    
+    self.headerFiles = [AlgorithmModelInterface headerFilesForAlgorithmName:self.algorithmName config:userInfo];
+    
+    self.implementationFiles = [AlgorithmModelInterface implementationFilesForAlgorithmName:self.algorithmName config:userInfo];
+    
+}
+
 
 
 // ==========================================================================
@@ -415,11 +451,17 @@
 }
 
 
-#pragma mark Algorithm model interface
+#pragma mark ViewDataDelegate
 
-- (NSDictionary *)dataForAlgorithmInputs:(NSDictionary *)inputs
+- (NSDictionary *)viewDataForAlgorithmInputs:(NSDictionary *)inputs
 {
-    return [AlgorithmModelInterface dataForAlgorithmName:self.algorithmName inputs:inputs];
+    return [AlgorithmModelInterface viewDataForAlgorithmName:self.algorithmName inputs:inputs];
+}
+
+
+- (NSDictionary *)viewSetupInformation
+{
+    return [AlgorithmModelInterface viewSetupInfoForAlgorithmName:self.algorithmName];
 }
 
 
@@ -486,7 +528,7 @@
     
     
     [UIView transitionWithView:self.currentAlgorithmView
-                      duration:2.0
+                      duration:1.0
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         
@@ -497,16 +539,20 @@
                     } completion:^(BOOL finished) {
                         
                         [UIView transitionWithView:self.view
-                                          duration:2.0
+                                          duration:1.0
                                            options:UIViewAnimationOptionTransitionCrossDissolve
                                         animations:^{
+                                            
+                                            // This will trigger didMoveToSuperview in subview.
                                             [self.algorithmView addSubview:view];
                                             
                                             [self.algorithmView layoutIfNeeded];
                                             
                                         } completion:^(BOOL finished) {
                                             
+                                            // This will also trigger didMoveToSuperview in subview.
                                             [self.currentAlgorithmView removeFromSuperview];
+                                            
                                             self.currentAlgorithmView.alpha = 1.0;
                                             
                                             self.currentAlgorithmView = view;
@@ -522,10 +568,10 @@
 }
 
 
+
 - (void)disableToolbarButtons
 {
     self.aboutButton.enabled = NO;
-    self.runButton.enabled = NO;
     self.showHeaderButton.enabled = NO;
     self.showImplementationButton.enabled = NO;
     self.emailCodeButton.enabled = NO;
@@ -534,7 +580,6 @@
 - (void)enableToolbarButtons
 {
     self.aboutButton.enabled = YES;
-    self.runButton.enabled = YES;
     self.showHeaderButton.enabled = YES;
     self.showImplementationButton.enabled = YES;
     self.emailCodeButton.enabled = YES;
@@ -549,13 +594,20 @@
 }
 
 
+// Note:
+// We can't include a .mm file in both the Resource Bundle as well as the list of compiled files.
+//
+// In order to get access to selected header and implementation files, we create links in
+// the Source subdirectory using the filename with .txt appended.  These links are then
+// added to the Resource Bundle.
+//
 - (void)showCodePopover:(NSString *)fileNameBase
              button:(UIBarButtonItem *)button
 {
     [self disableToolbarButtons];
     
     NSString *codePath = [[NSBundle mainBundle] pathForResource:fileNameBase ofType:@"txt"];
-    NSString *code = [NSString stringWithContentsOfFile:codePath encoding:NSASCIIStringEncoding error:NULL];
+    NSString *code = [NSString stringWithContentsOfFile:codePath encoding:NSUTF8StringEncoding error:NULL];
     
     // Code needs to be suitable for insertion in HTML
     code = [code stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
@@ -571,6 +623,12 @@
 
 
 
+// Fetch the first algorithm method label
+- (NSString *)firstAlgorithmLabel
+{
+    return self.appDelegate.algorithmDatabase[0][@"algorithms"][0][@"algorithmLabel"];
+}
+
 // Fetch the first algorithm method name
 - (NSString *)firstAlgorithmName
 {
@@ -583,6 +641,122 @@
 {
     return self.appDelegate.algorithmDatabase[0][@"algorithms"][0][@"about"];
 }
+
+
+// Reference:
+// https://github.com/kolyvan/kxmenu
+//
+// Search for "Scott" in KxMenu.m for my updates.
+//
+- (void)showHeaderMenu:(UIBarButtonItem *)sender
+{
+    
+    NSMutableArray *menuItemsMutableArr = [[NSMutableArray alloc] init];
+    
+    [menuItemsMutableArr addObject:[KxMenuItem menuItem:@"Select file "
+                                        image:nil
+                                       target:nil
+                                       action:NULL]];
+    
+    
+    for (NSString *file in self.headerFiles) {
+        [menuItemsMutableArr addObject:[KxMenuItem menuItem:file
+                                            image:nil
+                                           target:self
+                                           action:@selector(showHeader:)]];
+    }
+    
+    NSArray *menuItems = [NSArray arrayWithArray:menuItemsMutableArr];
+    
+    
+    // Highlight the first title item
+    KxMenuItem *first = menuItems[0];
+    first.foreColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:0/255.0f alpha:1.0];
+    first.alignment = NSTextAlignmentCenter;
+    
+    
+    // Can't get the barButton frame directly.
+    // Reference:
+    // http://stackoverflow.com/questions/14318368/uibarbuttonitem-how-can-i-find-its-frame
+    UIView *buttonView = (UIView *)[sender performSelector:@selector(view)];
+    
+    // Alternative approach
+    //UIView *buttonView = [sender valueForKey:@"view"];
+    
+    
+    // Get the frame of the button and shift it down a little for the menu view reference.
+    CGRect menuReferenceRect =  CGRectMake(buttonView.frame.origin.x, buttonView.frame.origin.y, buttonView.frame.size.width, buttonView.frame.size.height + 60.0);
+    
+    [KxMenu showMenuInView:self.view
+                  fromRect:menuReferenceRect
+                 menuItems:menuItems];
+    
+}
+
+
+
+- (void)showHeader:(KxMenuItem *)menuItem
+{
+    if([self.codeViewPopover isPopoverVisible]){
+        [self dismissCodePopover];
+        return;
+    }
+    
+    [self showCodePopover:menuItem.title button:self.showHeaderButton];
+}
+
+
+
+- (void)showImplementationMenu:(UIBarButtonItem *)sender
+{
+    NSMutableArray *menuItemsMutableArr = [[NSMutableArray alloc] init];
+    
+    [menuItemsMutableArr addObject:[KxMenuItem menuItem:@"Select file "
+                                                  image:nil
+                                                 target:nil
+                                                 action:NULL]];
+    
+    
+    for (NSString *file in self.implementationFiles) {
+        [menuItemsMutableArr addObject:[KxMenuItem menuItem:file
+                                                      image:nil
+                                                     target:self
+                                                     action:@selector(showImplementation:)]];
+    }
+    
+    NSArray *menuItems = [NSArray arrayWithArray:menuItemsMutableArr];
+    
+    
+    // Highlight the first title item
+    KxMenuItem *first = menuItems[0];
+    first.foreColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:0/255.0f alpha:1.0];
+    first.alignment = NSTextAlignmentCenter;
+    
+    
+    UIView *buttonView = (UIView *)[sender performSelector:@selector(view)];
+    
+    
+    // Get the frame of the button and shift it down a little for the menu view reference.
+    CGRect menuReferenceRect =  CGRectMake(buttonView.frame.origin.x, buttonView.frame.origin.y, buttonView.frame.size.width, buttonView.frame.size.height + 60.0);
+    
+    [KxMenu showMenuInView:self.view
+                  fromRect:menuReferenceRect
+                 menuItems:menuItems];
+    
+
+}
+
+
+- (void)showImplementation:(KxMenuItem *)menuItem
+{
+    if([self.codeViewPopover isPopoverVisible]){
+        [self dismissCodePopover];
+        return;
+    }
+    
+    [self showCodePopover:menuItem.title button:self.showImplementationButton];
+}
+
 
 
 #pragma mark Algorithm View Communication
@@ -640,10 +814,12 @@
 
 #pragma mark Algorithm Setup
 
-- (void)setupAlgorithmForName:(NSString *)algorithmName about:(NSString *)about
+- (void)setupAlgorithmForName:(NSString *)name
+                        label:(NSString *)label
+                        about:(NSString *)about
 {
-    
-    self.algorithmName = algorithmName;
+    self.algorithmName = name;
+    self.algorithmLabel = label;
     self.about = about;
     
     // Is XIB loaded?
@@ -686,26 +862,38 @@
     
     UIView *newView = (UIView *)[self.algorithmViewsMutableDict[self.algorithmName] firstObject];
     
-    // Add default drawing view.
+    
+    // Add ourselves as the delegate to handle data requests from current algorithm view.
+    //
+    // Note:  It is critical that we do this before adding newView as subView.
+    //        Why?  Because loading the subview will eventually trigger a call to runAlgorithm in the subview
+    //              which requires that the delegate is setup.
+    [(AlgorithmView *)newView setViewDataDelegate:self];
+    
+    
+    self.title = self.algorithmLabel;
+    
+    
+    // If we have not previously setup a view, add one here.  We don't do this in changeToAlgorithmView:
+    // since that routine expects that there is already a loaded view in self.currentAlgorithmView.
     if(!self.currentAlgorithmView){
         
         self.currentAlgorithmView = newView;
         
-        // Add ourselves as the delegate to handle data requests from current algorithm view.
-        //
-        // Note:  It is critical that we do this before adding newView as subView.
-        //        Why?  Because we rely on didMoveToSuperview in the subview to trigger and update
-        //              which requires that the delegate is setup.
-        [(AlgorithmView *)self.currentAlgorithmView setDataDelegate:self];
-        
         // This will trigger didMoveToSuperview in subview.
         [self.algorithmView addSubview:newView];
+        
+        [self.algorithmView layoutIfNeeded];
+        
+        [self enableToolbarButtons];
+        
+        return;
     }
+    
     
     // Swap in the newly selected view
     [self changeToAlgorithmView:newView];
     
-    self.title = self.algorithmName;
 
 }
 

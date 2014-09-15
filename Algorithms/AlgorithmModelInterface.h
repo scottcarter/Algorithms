@@ -58,7 +58,16 @@
 #pragma mark -
 #pragma mark Class method declarations
 
-+ (NSDictionary *)dataForAlgorithmName:(NSString *)algorithmName inputs:(NSDictionary *)inputs;
++ (NSArray *)headerFilesForAlgorithmName:(NSString *)algorithmName config:(NSDictionary *)config;
+
++ (NSArray *)implementationFilesForAlgorithmName:(NSString *)algorithmName config:(NSDictionary *)config;
+
+
+
++ (NSDictionary *)viewDataForAlgorithmName:(NSString *)algorithmName inputs:(NSDictionary *)inputs;
+
++ (NSDictionary *)viewSetupInfoForAlgorithmName:(NSString *)algorithmName;
+
 
 
 // ==========================================================================

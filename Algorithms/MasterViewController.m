@@ -261,9 +261,10 @@
     NSInteger row = indexPath.row;
     
     NSString *algorithmName = self.appDelegate.algorithmDatabase[section][@"algorithms"][row][@"algorithmName"];
+    NSString *algorithmLabel = self.appDelegate.algorithmDatabase[section][@"algorithms"][row][@"algorithmLabel"];
     NSString *about = self.appDelegate.algorithmDatabase[section][@"algorithms"][row][@"about"];
     
-    [self.detailViewController setupAlgorithmForName:algorithmName about:about];
+    [self.detailViewController setupAlgorithmForName:algorithmName label:algorithmLabel about:about];
     
 }
 

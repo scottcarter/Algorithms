@@ -19,6 +19,10 @@ public:
                           int* randomArrCounts,
                           double* calculatedArrPercentages);
     
+    vector<string> headerFileList(void);
+    vector<string> implementationFileList(void);
+    
+    
 private:
     
     void randomTrials(int numTrials,

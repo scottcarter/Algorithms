@@ -31,9 +31,11 @@
 #pragma mark -
 #pragma mark Protocols
 
-@protocol DataDelegate <NSObject>
+@protocol ViewDataDelegate <NSObject>
 
-- (NSDictionary *)dataForAlgorithmInputs:(NSDictionary *)inputs;
+- (NSDictionary *)viewDataForAlgorithmInputs:(NSDictionary *)inputs;
+
+- (NSDictionary *)viewSetupInformation;
 
 @end
 
@@ -55,7 +57,7 @@
 #pragma mark -
 #pragma mark Properties
 
-@property (nonatomic, weak) id <DataDelegate> dataDelegate;
+@property (nonatomic, weak) id <ViewDataDelegate> viewDataDelegate;
 
 
 

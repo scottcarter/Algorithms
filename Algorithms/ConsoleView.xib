@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ConsoleView">
+            <rect key="frame" x="0.0" y="0.0" width="703" height="616"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lu0-6y-LLL">
+                    <rect key="frame" x="191" y="-9" width="320" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                </pickerView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqG-OO-ScP">
+                    <rect key="frame" x="330" y="192" width="43" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <state key="normal" title="Run">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="runAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="19G-Rf-v1j"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QK7-HG-5SV">
+                    <rect key="frame" x="0.0" y="277" width="703" height="339"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" red="0.90105736260000002" green="1" blue="0.89830857519999996" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="tqG-OO-ScP" firstAttribute="top" secondItem="Lu0-6y-LLL" secondAttribute="bottom" constant="-15" id="79b-85-tHq"/>
+                <constraint firstAttribute="centerY" secondItem="Lu0-6y-LLL" secondAttribute="centerY" constant="209" id="7AL-k1-zye"/>
+                <constraint firstAttribute="trailing" secondItem="QK7-HG-5SV" secondAttribute="trailing" id="Auo-A6-KFY"/>
+                <constraint firstItem="tqG-OO-ScP" firstAttribute="centerX" secondItem="Lu0-6y-LLL" secondAttribute="centerX" constant="0.5" id="Cwo-EE-Kpt"/>
+                <constraint firstAttribute="bottom" secondItem="QK7-HG-5SV" secondAttribute="bottom" id="DPq-B1-F8n"/>
+                <constraint firstItem="QK7-HG-5SV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Pg1-4v-MEO"/>
+                <constraint firstItem="QK7-HG-5SV" firstAttribute="top" secondItem="tqG-OO-ScP" secondAttribute="bottom" constant="44" id="bmn-UA-zAK"/>
+                <constraint firstAttribute="centerX" secondItem="Lu0-6y-LLL" secondAttribute="centerX" constant="0.5" id="vCi-Tf-Jiv"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="runSelectionPicker" destination="Lu0-6y-LLL" id="B9u-dQ-XiT"/>
+                <outlet property="textView" destination="QK7-HG-5SV" id="KQD-nU-41L"/>
+            </connections>
+        </view>
+    </objects>
+</document>

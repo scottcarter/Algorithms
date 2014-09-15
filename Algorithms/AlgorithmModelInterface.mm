@@ -8,8 +8,13 @@
 
 #import "AlgorithmModelInterface.h"
 
-#import "AlgorithmModel.h"
+#import "Project.h"
+
+
+// Need to import all models here.
 #import "TwoDiceRollSimulationModel.h"
+#import "ConsoleModel.h"
+
 
 
 /*
@@ -137,18 +142,75 @@
 #pragma mark -
 #pragma mark Class methods
 
-
-// This method is responsible for getting data from the appropriate algorithm model
-//
-+ (NSDictionary *)dataForAlgorithmName:(NSString *)algorithmName inputs:(NSDictionary *)inputs
++ (NSArray *)headerFilesForAlgorithmName:(NSString *)algorithmName config:(NSDictionary *)config
 {
     
     AlgorithmModel* model = NULL;
-    NSDictionary *data;
+    NSArray *files = nil;
+    vector<string> fileVec;
     
     if([algorithmName isEqualToString:@"TwoDiceRollSimulation"]){
         model = new TwoDiceRollSimulationModel();
-        data = exerciseChap2Num7Model((TwoDiceRollSimulationModel*)model, inputs);
+        fileVec = ((TwoDiceRollSimulationModel*)model)->headerFileList();
+        
+    }
+    else if([algorithmName isEqualToString:@"Console"]){
+        NSInteger row = [config[@"row"] integerValue];
+        model = new ConsoleModel();
+        fileVec = ((ConsoleModel*)model)->headerFileList((ConsoleModel::RunSelection)row);
+    }
+    
+    assert(model != NULL);  // Unhandled algorithm
+    delete model;
+    
+    files = codeFiles(fileVec);
+    return files;
+}
+
+
+
++ (NSArray *)implementationFilesForAlgorithmName:(NSString *)algorithmName config:(NSDictionary *)config
+{
+    AlgorithmModel* model = NULL;
+    NSArray *files = nil;
+    vector<string> fileVec;
+    
+    if([algorithmName isEqualToString:@"TwoDiceRollSimulation"]){
+        model = new TwoDiceRollSimulationModel();
+        fileVec = ((TwoDiceRollSimulationModel*)model)->implementationFileList();
+        
+    }
+    else if([algorithmName isEqualToString:@"Console"]){
+        NSInteger row = [config[@"row"] integerValue];
+        model = new ConsoleModel();
+        fileVec = ((ConsoleModel*)model)->implementationFileList((ConsoleModel::RunSelection)row);
+    }
+    
+    assert(model != NULL);  // Unhandled algorithm
+    delete model;
+    
+    files = codeFiles(fileVec);
+    return files;
+}
+
+
+
+
+// This method is responsible for getting data from selected algorithm model
+//
++ (NSDictionary *)viewDataForAlgorithmName:(NSString *)algorithmName inputs:(NSDictionary *)inputs
+{
+    
+    AlgorithmModel* model = NULL;
+    NSDictionary *data = nil;
+    
+    if([algorithmName isEqualToString:@"TwoDiceRollSimulation"]){
+        model = new TwoDiceRollSimulationModel();
+        data = twoDiceRollSimulationData((TwoDiceRollSimulationModel*)model, inputs);
+    }
+    else if([algorithmName isEqualToString:@"Console"]){
+        model = new ConsoleModel();
+        data = consoleData((ConsoleModel *)model, inputs);
     }
     
     assert(model != NULL);  // Unhandled algorithm
@@ -157,6 +219,27 @@
     return data;
 }
 
+
+// This method is responsible for getting setup information from selected algorithm model
+//
++ (NSDictionary *)viewSetupInfoForAlgorithmName:(NSString *)algorithmName
+{
+    AlgorithmModel* model = NULL;
+    NSDictionary *setupInfo = nil;
+    
+    if([algorithmName isEqualToString:@"TwoDiceRollSimulation"]){
+        ; // No setup needed
+    }
+    else if([algorithmName isEqualToString:@"Console"]){
+        model = new ConsoleModel();
+        setupInfo = consoleSetupInfo((ConsoleModel *)model);
+    }
+    
+    assert(model != NULL);  // Unhandled algorithm
+    
+    delete model;
+    return setupInfo;
+}
 
 
 // ==========================================================================
@@ -178,7 +261,76 @@
 #pragma mark C methods
 
 
-NSDictionary* exerciseChap2Num7Model(TwoDiceRollSimulationModel* model, NSDictionary* inputs)
+#pragma mark Header and Implementation file helpers
+
+NSArray *codeFiles(vector<string>& fileVec)
+{
+    NSMutableArray *filesMutableArray = [[NSMutableArray alloc] init];
+    
+    vector<string>::iterator fileVecIter = fileVec.begin();
+    
+    // Cycle through each string
+    for(;fileVecIter != fileVec.end(); fileVecIter++){
+        const char* cStr = (*fileVecIter).c_str();
+        
+        NSString *str = [NSString stringWithCString:cStr encoding:NSUTF8StringEncoding];
+        
+        [filesMutableArray addObject:str];
+    }
+    
+    return [[NSArray alloc] initWithArray:filesMutableArray];
+}
+
+
+
+#pragma mark viewSetupInfoForAlgorithmName helpers
+
+NSDictionary* consoleSetupInfo(ConsoleModel* model)
+{
+    NSMutableDictionary *setupMutableDict = [[NSMutableDictionary alloc] init];
+    
+    vector<string> stringVec;
+    vector<int>runSelection;
+    
+    model->setupInfoForAlgorithm(stringVec, runSelection);
+    
+    // Vectors must be of same length!
+    assert(stringVec.size() == runSelection.size());
+    
+    vector<string>::iterator stringVecIter = stringVec.begin();
+    vector<int>::iterator runSelectionIter = runSelection.begin();
+    
+    // Cycle through each string, runSelection pair
+    for(;stringVecIter != stringVec.end(); stringVecIter++, runSelectionIter++){
+        const char* cStr = (*stringVecIter).c_str(); // Get constant string pointer
+        
+        NSString *str = [NSString stringWithCString:cStr encoding:NSUTF8StringEncoding];
+        
+        [setupMutableDict setObject:str forKey:[NSNumber numberWithInt:*runSelectionIter]];
+    }
+    
+    return [[NSDictionary alloc] initWithDictionary:setupMutableDict];
+}
+
+
+
+#pragma mark viewDataForAlgorithmName helpers
+
+NSDictionary* consoleData(ConsoleModel* model, NSDictionary* inputs)
+{
+    NSInteger selection = [(NSNumber *)inputs[@"runSelection"] integerValue];
+    
+    string consoleOutput;
+    model->dataForAlgorithm((ConsoleModel::RunSelection)selection, consoleOutput);
+    
+    // Bundle up our result
+    NSString *result =  [NSString stringWithCString:consoleOutput.c_str() encoding:NSUTF8StringEncoding];
+    
+    return @{@"consoleOutput": result};
+}
+
+
+NSDictionary* twoDiceRollSimulationData(TwoDiceRollSimulationModel* model, NSDictionary* inputs)
 {
     NSInteger numTrials = [(NSNumber *)inputs[@"numTrials"] integerValue];
     

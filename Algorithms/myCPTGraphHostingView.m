@@ -8,6 +8,8 @@
 
 #import "myCPTGraphHostingView.h"
 
+#import "Project.h"
+
 @implementation myCPTGraphHostingView
 
 

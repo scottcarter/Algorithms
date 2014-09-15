@@ -8,6 +8,7 @@
 
 #import "TwoDiceRollSimulationView.h"
 
+#import "Project.h"
 
 
 /*
@@ -43,7 +44,7 @@
 @property (nonatomic) NSInteger numTrials;
 
 
-// Return data obtained from dataForAlgorithmInputs: delegate method
+// Return data obtained from viewDataForAlgorithmInputs: delegate method
 @property (strong, nonatomic) NSDictionary *dataForAlgorithm;
 
 @property (nonatomic) NSInteger maxCount;
@@ -177,6 +178,10 @@ CGFloat const YAxisStretchFactor = 1.2f;
     //
     // We are interested in the very first notification which will allow us to
     // call runAlgorithm.
+    //
+    // See note to viewDidLayoutSubviews: in DetailViewController.m
+    // We need a call to drawRect to let us know when self.hostView has settled bounds.
+    //
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(graphHostingViewDrawRectNotification:)
                                                  name:CPTGraphHostingViewDrawRectNotification
@@ -193,16 +198,34 @@ CGFloat const YAxisStretchFactor = 1.2f;
 
 
 
+
 // Called when we have been added to a super view.
 //
-//- (void)didMoveToSuperview
-//{
-//    [super didMoveToSuperview];
-//}
+// This is the earliest time that we would wish to call runAlgorithm to ensure that our
+// viewDataDelegate property inherited from AlgorithmView is setup.
+//
+// In this particular view, we need to wait even longer (after drawRect is called) to
+// ensure that the bounds of self.hostView have settled.
+//
+- (void)didMoveToSuperview
+{
+    [super didMoveToSuperview];
+    
+    // If we have been removed from a super view, do nothing.
+    if(!self.superview){
+        return;
+    }
+    
+    
+    // Notify any listeners that we are loaded.
+    [[NSNotificationCenter defaultCenter] postNotificationName:CodeSetChangeNotification object:self userInfo:nil];
+    
+}
 
 
 - (void)graphHostingViewDrawRectNotification:(NSNotification *)notification
 {
+    
     // Not interested in further drawRect notifications.
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
@@ -328,7 +351,7 @@ CGFloat const YAxisStretchFactor = 1.2f;
 {
     self.numTrials = [self.numTrialsTextField.text integerValue];
     
-    self.dataForAlgorithm = [self.dataDelegate dataForAlgorithmInputs:@{@"numTrials":[NSNumber numberWithInteger:self.numTrials]}];
+    self.dataForAlgorithm = [self.viewDataDelegate viewDataForAlgorithmInputs:@{@"numTrials":[NSNumber numberWithInteger:self.numTrials]}];
     
 
     [self updateAlgorithmDisplay];

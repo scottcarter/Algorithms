@@ -9,6 +9,12 @@
 #ifndef __Algorithms__AlgorithmModel__
 #define __Algorithms__AlgorithmModel__
 
+#include <vector>
+#include <string>
+
+using namespace std;
+
+
 
 class AlgorithmModel
 {

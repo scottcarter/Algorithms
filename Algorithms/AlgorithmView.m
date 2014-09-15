@@ -135,7 +135,7 @@
 #pragma mark -
 #pragma mark Instance methods
 
-// Subclass needs to override these methods
+// Subclass can override these methods
 
 - (void)algorithmViewWillRotate {}
 - (void)runAlgorithm {}

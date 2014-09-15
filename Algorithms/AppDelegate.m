@@ -20,9 +20,13 @@
     // Initialize our database.
     self.algorithmDatabase = @[@{@"sectionLabel": @"Numerical",
                                  @"algorithms" : @[
-                                         // Exercise 2-7
                                          @{@"algorithmLabel": @"Two Dice Roll Simulation", @"algorithmName": @"TwoDiceRollSimulation",
                                            @"about":@"Simulates rolling two six-sided dice and draws a bar chart showing the number of times each roll occurs.\nAlso shows expected percentage of the time one should get each roll.\n\nGreater number of trials reduce the percentage difference between random roll percentages and expected percentages."},
+                                         ]},
+                               @{@"sectionLabel": @"General",
+                                 @"algorithms" : @[
+                                         @{@"algorithmLabel": @"Misc Tests", @"algorithmName": @"Console",
+                                           @"about":@"Misc C++ tests that output to the console."},
                                          ]},
                                ];
     
