@@ -15,14 +15,6 @@
 #ifndef Global_h
 #define Global_h
 
-//// SharedState singleton
-//#import "CommonStateSingleton.h"
-//
-//// Our debug singleton
-//#import "DebugSingleton.h"
-//
-//// For TestFlight TFLog
-//#import "TestFlight.h"
 
 
 // Default is a release environment
@@ -146,58 +138,9 @@
 #define DO_PRAGMA(x) _Pragma (#x)
 
 
-//// Define a macro that will log to our DebugSingleton using logAddText.
-////
-//#define DSLOG(FormatLiteral, ...) \
-//{ \
-//NSString *text = [NSString stringWithFormat:@"%s(%u): \n" FormatLiteral "\n\n",__FUNCTION__, __LINE__, ##__VA_ARGS__]; \
-//[[DebugSingleton sharedDebugSingleton] logAddText:text]; \
-//}
-
-
-// Define a macro that will trace to our DebugSingleton using traceAdd.
-//
-// Examples:
-//
-// DSTRACE("Hello",@"foo":@"bar", @"yahoo":@"google")
-// DSTRACE("",@"foo":@"bar", @"yahoo":@"google")
-// DSTRACE("Hello")
-//
-// NSString *key = @"mykey";
-// NSArray *obj = @[@{@"k1":@"v1"}, @{@"k2":@"v2", @"k3":@"v3"}];
-// DSTRACE("Hello",key:obj)
-
-
-
-// NOTE:
-// I've suspended my use of DSTRACE for now since I was using it in a thread un-safe manner.
-// See some of the logs in Dropbox->Developer_iOS7->Bug Reports->Algorithms which I currently attribute to this issue:
-//
-// unresolvedConflictVersionsOfItemAtURL_4_13_14*.txt
-// runLoop_4_16_14*.txt
-// runLoop_5_1_14.txt
-// pointer_being_freed_was_not_allocated_5_2_14.txt
-//
-
-//#define DSTRACE(str, ...) \
-//{ \
-//NSString *msg = [NSString stringWithFormat:@"" str ""]; \
-//NSString *functionLine = [NSString stringWithFormat:@"%s(%u)",__FUNCTION__, __LINE__]; \
-//NSDictionary *traceDict = @{@"a_msg":msg, @"functionLine":functionLine, @"infoDict":@{__VA_ARGS__}}; \
-//[[DebugSingleton sharedDebugSingleton] traceAdd:traceDict]; \
-//}
-
-#define DSTRACE(...)
-
 
 // Define an error log message that prints argument along with function name and line number.
 // Useful in conditional blocks.
-//
-// Exception description. May be truncated to 100 chars.
-// isFatal (required). NO indicates non-fatal exception.
-
-//#define ERROR_LOG(FormatLiteral, ...)  [[GAI sharedInstance].defaultTracker send:[[GAIDictionaryBuilder createExceptionWithDescription:[NSString stringWithFormat:@"ERROR in %s(%u) %@ %@: " FormatLiteral, __FUNCTION__, __LINE__, [[UIDevice currentDevice] model], [[UIDevice currentDevice] systemVersion], ##__VA_ARGS__] withFatal:@NO] build]];  NSLog (@"ERROR in %s(%u): " FormatLiteral "\n\n", __FUNCTION__, __LINE__, ##__VA_ARGS__);  DSLOG("ERROR: " FormatLiteral, ##__VA_ARGS__)
-
 #define ERROR_LOG(FormatLiteral, ...)  NSLog (@"ERROR in %s(%u): " FormatLiteral "\n\n", __FUNCTION__, __LINE__, ##__VA_ARGS__);
 
 
@@ -213,9 +156,6 @@
 // https://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation/Classes/NSError_Class/Reference/Reference.html
 // https://developer.apple.com/library/ios/#documentation/Cocoa/Conceptual/ErrorHandlingCocoa/ErrorObjectsDomains/ErrorObjectsDomains.html
 //
-
-//#define EXCEPTION_LOG(FormatLiteral, ...)  [[GAI sharedInstance].defaultTracker send:[[GAIDictionaryBuilder createExceptionWithDescription:[NSString stringWithFormat:@"EXCEPTION in %s(%u) %@ %@: " FormatLiteral, __FUNCTION__, __LINE__, [[UIDevice currentDevice] model], [[UIDevice currentDevice] systemVersion], ##__VA_ARGS__] withFatal:@YES] build]]; [NSException raise:NSInternalInconsistencyException format:@"EXCEPTION in %s(%u): " FormatLiteral "\n", __FUNCTION__, __LINE__, ##__VA_ARGS__];
-
 #define EXCEPTION_LOG(FormatLiteral, ...)  [NSException raise:NSInternalInconsistencyException format:@"EXCEPTION in %s(%u): " FormatLiteral "\n", __FUNCTION__, __LINE__, ##__VA_ARGS__];
 
 
@@ -275,28 +215,14 @@
 
 // If PROJECT_DEVELOPMENT is not defined, we stub out ERROR_LOG, EXCEPTION_LOG, BOOKMARK, CLOG.
 
-// FLOG, NLOG are specifically setup for TestFlight in release mode
-// and consequently any project specific logging macros in the .pch file will continue to function for remote logging.
-//
 #else
 
 #define INSTRUMENT_POINT_SIGNAL(...)
 #define INSTRUMENT_START_SIGNAL(...) 
 #define INSTRUMENT_END_SIGNAL(...)
 
-#define DSLOG(...)
-
-#define DSTRACE(...)
-
-
-// We continue to report errors to Google Analytics in production, but don't call NSLog
-//#define ERROR_LOG(FormatLiteral, ...)  [[GAI sharedInstance].defaultTracker send:[[GAIDictionaryBuilder createExceptionWithDescription:[NSString stringWithFormat:@"ERROR in %s(%u) %@ %@: " FormatLiteral, __FUNCTION__, __LINE__, [[UIDevice currentDevice] model], [[UIDevice currentDevice] systemVersion], ##__VA_ARGS__] withFatal:@NO] build]];  if([[CommonStateSingleton sharedCommonStateSingleton] testFlightInitialized]){ TFLog (@"ERROR in %s(%u): " FormatLiteral "\n\n", __FUNCTION__, __LINE__, ##__VA_ARGS__); }
 
 #define ERROR_LOG(...)
-
-
-// We continue to report exceptions to Google Analytics in production, but don't throw an exception.
-//#define EXCEPTION_LOG(FormatLiteral, ...)  [[GAI sharedInstance].defaultTracker send:[[GAIDictionaryBuilder createExceptionWithDescription:[NSString stringWithFormat:@"EXCEPTION in %s(%u) %@ %@: " FormatLiteral, __FUNCTION__, __LINE__, [[UIDevice currentDevice] model], [[UIDevice currentDevice] systemVersion], ##__VA_ARGS__] withFatal:@YES] build]];  if([[CommonStateSingleton sharedCommonStateSingleton] testFlightInitialized]){ TFLog (@"EXCEPTION in %s(%u): " FormatLiteral "\n\n", __FUNCTION__, __LINE__, ##__VA_ARGS__); }
 
 #define EXCEPTION_LOG(...)
 
@@ -306,68 +232,11 @@
 #define BOOKMARK(...)
 #define CLOG(...)
 
-// Special handling for TestFlight.
-//#define FLOG(LogType, MacroType, FormatLiteral, ...)  if([[CommonStateSingleton sharedCommonStateSingleton] testFlightInitialized]){ TFLog (@"%s(%u): " LogType " \n" FormatLiteral "\n\n", __FUNCTION__, __LINE__, ##__VA_ARGS__); }
-//
-//#define NLOG(FormatLiteral, ...)  FLOG("","NSLog", FormatLiteral, ##__VA_ARGS__)
-
 #define FLOG(...)
 #define NLOG(...)
 
 #endif
 
-
-
-// +++++++++++++++++++++++++++++++++++++++++++
-// Unit testing macros
-// +++++++++++++++++++++++++++++++++++++++++++
-//
-
-//// Define some macros that only execute in a development environment
-//#if PROJECT_DEVELOPMENT
-//
-//#define COVERPOINT(Name,Condition) if(Condition) { [[CommonStateSingleton sharedCommonStateSingleton] incrementCoverpoint:Name]; }
-//
-//#else
-//
-//#define COVERPOINT(...)
-//
-//#endif
-
-
-
-// ++++++++++++++++++++++++++++++++++++++++++++
-// Debug macros
-// ++++++++++++++++++++++++++++++++++++++++++++
-
-// Inject an error with specified domain, code.  We inject up to MaxInjections in a given
-// run.  Count can be reset using resetInjectionErrorCounts method in DebugSingleton.
-
-//#define INJECT_ERROR_RETURN_NIL(Domain, Code, MaxInjections) \
-//FIXME(Injecting error and returning nil) \
-//NSUInteger injectionCount = [[DebugSingleton sharedDebugSingleton] injectionErrorCountForDomain:Domain code:Code]; \
-//if(injectionCount < MaxInjections){ \
-//NSLog(@"%d/%d Injecting error domain=%@ code=%d",injectionCount+1, MaxInjections, Domain, Code); \
-//if(error != NULL){ \
-//NSDictionary *errorDictionary = @{NSLocalizedDescriptionKey : NSLocalizedString(@"Injecting error and returning nil", @"")}; \
-//*error = [[NSError alloc] initWithDomain:Domain code:Code userInfo:errorDictionary]; \
-//ERROR_LOG("%@",*error) \
-//} \
-//return nil; \
-//}
-//
-//#define INJECT_ERROR_RETURN_NO(Domain, Code, MaxInjections) \
-//FIXME(Injecting error and returning NO) \
-//NSUInteger injectionCount = [[DebugSingleton sharedDebugSingleton] injectionErrorCountForDomain:Domain code:Code]; \
-//if(injectionCount < MaxInjections){ \
-//NSLog(@"%d/%d Injecting error domain=%@ code=%d",injectionCount+1, MaxInjections, Domain, Code); \
-//if(error != NULL){ \
-//NSDictionary *errorDictionary = @{NSLocalizedDescriptionKey : NSLocalizedString(@"Injecting error and returning NO", @"")}; \
-//*error = [[NSError alloc] initWithDomain:Domain code:Code userInfo:errorDictionary]; \
-//ERROR_LOG("%@",*error) \
-//} \
-//return NO; \
-//}
 
 
 

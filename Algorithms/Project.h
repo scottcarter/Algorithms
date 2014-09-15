@@ -10,12 +10,6 @@
 #define Algorithms_Project_h
 
 
-//// For Google Analytics
-//#import "GAI.h"
-//#import "GAIDictionaryBuilder.h"
-//#import "GAIFields.h"
-
-
 // Introduce PROJECT_DEVELOPMENT macro (instead of relying on just DEBUG), so that we can
 // test development or release environment (with appropriate changes to defines below).
 //
@@ -35,9 +29,6 @@
 // Import my global, project independent header file
 #import "Global.h"
 
-
-//// ManagedDocument singleton for database
-//#import "ManagedDocumentSingleton.h"
 
 
 

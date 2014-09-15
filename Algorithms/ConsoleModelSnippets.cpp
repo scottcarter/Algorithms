@@ -20,15 +20,26 @@
  */
 string ConsoleModelSnippets::findNegative(void)
 {
-    string result("ConsoleModelSnippets::findNegative\n\n");
+    char c_str[512];
     
     float vals[] = {34.23, 67.33, 46.44, -100.22, 85.56, 0};
     float* fp = vals;
     findNegativeHelper(&fp);
     
-    char c_str[80];
-    sprintf(c_str, "First negative #=%f",*fp);
+    // Return a string with our inputs and result
+    string result("Inputs: ");
+    int arrayLen = (sizeof(vals)/sizeof(*vals));
+    for(int i=0; i<arrayLen; i++){
+        if(i == (arrayLen - 1)){
+            sprintf(c_str, "%.2f\n",vals[i]);
+        }
+        else {
+            sprintf(c_str, "%.2f, ",vals[i]);
+        }
+        result += string(c_str);
+    }
     
+    sprintf(c_str, "Result: First negative #=%f",*fp);
     result += string(c_str);
     
     return result;
