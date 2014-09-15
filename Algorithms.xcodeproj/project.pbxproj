@@ -25,6 +25,7 @@
 		A76D4D1519C633860011B08D /* ConsoleModelSnippets.cpp.txt in Resources */ = {isa = PBXBuildFile; fileRef = A76D4D0E19C633860011B08D /* ConsoleModelSnippets.cpp.txt */; };
 		A76D4D1619C633860011B08D /* ConsoleModelSnippets.h.txt in Resources */ = {isa = PBXBuildFile; fileRef = A76D4D0F19C633860011B08D /* ConsoleModelSnippets.h.txt */; };
 		A76D4D1719C633860011B08D /* TwoDiceRollSimulationModel.h.txt in Resources */ = {isa = PBXBuildFile; fileRef = A76D4D1019C633860011B08D /* TwoDiceRollSimulationModel.h.txt */; };
+		A76D4D1E19C783140011B08D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A76D4D1D19C783140011B08D /* README.md */; };
 		A79FE38019AF76DC0063C2B8 /* myCPTGraphHostingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A79FE37F19AF76DC0063C2B8 /* myCPTGraphHostingView.m */; };
 		A7C11F8E19C36A4200A05475 /* ConsoleModelSnippets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C11F8C19C36A4200A05475 /* ConsoleModelSnippets.cpp */; };
 		A7C11F9419C4BA3C00A05475 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C11F9319C4BA3C00A05475 /* KxMenu.m */; };
@@ -86,7 +87,7 @@
 		A76D4D0E19C633860011B08D /* ConsoleModelSnippets.cpp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ConsoleModelSnippets.cpp.txt; path = Source/ConsoleModelSnippets.cpp.txt; sourceTree = SOURCE_ROOT; };
 		A76D4D0F19C633860011B08D /* ConsoleModelSnippets.h.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ConsoleModelSnippets.h.txt; path = Source/ConsoleModelSnippets.h.txt; sourceTree = SOURCE_ROOT; };
 		A76D4D1019C633860011B08D /* TwoDiceRollSimulationModel.h.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TwoDiceRollSimulationModel.h.txt; path = Source/TwoDiceRollSimulationModel.h.txt; sourceTree = SOURCE_ROOT; };
-		A76D4D1819C7611C0011B08D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		A76D4D1D19C783140011B08D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		A79FE37E19AF76DC0063C2B8 /* myCPTGraphHostingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCPTGraphHostingView.h; sourceTree = "<group>"; };
 		A79FE37F19AF76DC0063C2B8 /* myCPTGraphHostingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCPTGraphHostingView.m; sourceTree = "<group>"; };
 		A7C11F8C19C36A4200A05475 /* ConsoleModelSnippets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConsoleModelSnippets.cpp; sourceTree = "<group>"; };
@@ -210,6 +211,7 @@
 		A7EE2C1A199E8BFA00D70A06 = {
 			isa = PBXGroup;
 			children = (
+				A76D4D1D19C783140011B08D /* README.md */,
 				A7EE2C2C199E8BFA00D70A06 /* Algorithms */,
 				A7EE2C4E199E8BFA00D70A06 /* AlgorithmsTests */,
 				A7EE2C25199E8BFA00D70A06 /* Frameworks */,
@@ -295,7 +297,6 @@
 		A7EE2C64199E8D7700D70A06 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
-				A76D4D1819C7611C0011B08D /* README.md */,
 				A7EE2C67199E8DF000D70A06 /* Architecture.h */,
 				A7EE2C66199E8DCA00D70A06 /* README.h */,
 			);
@@ -446,6 +447,7 @@
 				A725FEE419B0C0A00067EBCC /* ConsoleView.xib in Resources */,
 				A76D4D1619C633860011B08D /* ConsoleModelSnippets.h.txt in Resources */,
 				A76D4D1719C633860011B08D /* TwoDiceRollSimulationModel.h.txt in Resources */,
+				A76D4D1E19C783140011B08D /* README.md in Resources */,
 				A76D4D1419C633860011B08D /* ConsoleModel.mm.txt in Resources */,
 				A7EE2C3A199E8BFA00D70A06 /* Main.storyboard in Resources */,
 				A7EE2C6F199EEC6A00D70A06 /* TwoDiceRollSimulationView.xib in Resources */,
