@@ -1,6 +1,6 @@
 # Algorithms
 
-iPad demo showing Core Plot, KxMenu integration along with interfaces to various C++ algorithms and routines.
+iPad demo showing Core Plot, KxMenu, C++ integration along with other various concepts
 
 
 # Overview 
