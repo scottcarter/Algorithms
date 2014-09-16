@@ -5,7 +5,7 @@ iPad demo showing Core Plot, KxMenu, C++ integration along with other various co
 
 # Screenshot
 
-![example img](screenshot/example1.png?raw=true)
+![example1 img](screenshot/example1.png?raw=true)
 
 
 # Overview 
@@ -103,6 +103,20 @@ Build and Run.
 [highlight.js](https://highlightjs.org) - Syntax highlighting for the Web
 
 [yEd Graph Editor](http://www.yworks.com/en/products_yed_about.html) - Free editor to create diagrams
+
+
+# More Screenshots
+
+## Code Syntax highlighting in a Web view
+
+![example2 img](screenshot/example2.png?raw=true)
+
+
+## UML Class Diagram**
+
+![UML Class Diagram img](CodeOverview.png?raw=true)
+
+
 
 
 
