@@ -3,6 +3,11 @@
 iPad demo showing Core Plot, KxMenu, C++ integration along with other various concepts
 
 
+# Screenshot
+
+<img src="screenshot/example1.png?raw=true" width="1024" height="768">
+
+
 # Overview 
 
 This is intended to be a demo project that currently shows the following main concepts:
