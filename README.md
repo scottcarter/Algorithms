@@ -112,7 +112,7 @@ Build and Run.
 ![example2 img](screenshot/example2.png?raw=true)
 
 
-## UML Class Diagram**
+## UML Class Diagram
 
 ![UML Class Diagram img](CodeOverview.png?raw=true)
 
