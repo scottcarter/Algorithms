@@ -5,7 +5,7 @@ iPad demo showing Core Plot, KxMenu, C++ integration along with other various co
 
 # Screenshot
 
-<img src="screenshot/example1.png?raw=true" width="1024" height="768">
+![example img](screenshot/example1.png?raw=true)
 
 
 # Overview 
