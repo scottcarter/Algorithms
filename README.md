@@ -96,6 +96,8 @@ Build and Run.
 
 # References
 
+[Core Plot](https://github.com/core-plot/core-plot) - 2D plotting framework for Mac OS X and iOS
+
 [CocoaPods](http://cocoapods.org) - Dependency manager
 
 [KxMenu](https://github.com/kolyvan/kxmenu) - Vertical popup menus 
