@@ -10,29 +10,29 @@
 	<string>Algorithms</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>FC6071F9-8FCA-43E0-B569-1040BACE40D3</key>
+		<key>15127B2CAF51083BFCCE81BDDD8DB755C529117D</key>
 		<string>https://github.com/scottcarter/algorithms.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Algorithms.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>FC6071F9-8FCA-43E0-B569-1040BACE40D3</key>
+		<key>15127B2CAF51083BFCCE81BDDD8DB755C529117D</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/scottcarter/algorithms.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>FC6071F9-8FCA-43E0-B569-1040BACE40D3</string>
+	<string>15127B2CAF51083BFCCE81BDDD8DB755C529117D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>FC6071F9-8FCA-43E0-B569-1040BACE40D3</string>
+			<string>15127B2CAF51083BFCCE81BDDD8DB755C529117D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Algorithms</string>
 		</dict>
